@@ -12,13 +12,12 @@ An [Agent Skill](https://agentskills.io) that makes coding agents such as Claude
 
 ## Installation
 
-The skill lives in [`skills/git-flow`](skills/git-flow). Copy that folder into your skills directory:
+Clone the repository into your skills directory as `git-flow`:
 
 ```bash
-git clone https://github.com/otsobide/git-flow-skill.git
-cp -r git-flow-skill/skills/git-flow ~/.claude/skills/
+git clone https://github.com/otsobide/git-flow-skill.git ~/.claude/skills/git-flow
 ```
 
-To install it for a single project, copy it into `.claude/skills/` inside that project instead.
+To install it for a single project, clone it into `.claude/skills/git-flow` inside that project instead.
 
 Requires `git` and the [GitHub CLI](https://cli.github.com) (`gh`), logged in with `gh auth login`.
