@@ -10,8 +10,10 @@ An [Agent Skill](https://agentskills.io) that teaches coding agents (Claude Code
 
 ## Layout
 
+The repository root is the skill:
+
 ```
-skills/git-flow/
+.
 ├── SKILL.md                      # the workflow the agent follows
 ├── references/
 │   ├── release-and-hotfix.md     # versioning, changelog, tags, release automation, back-merges
@@ -22,26 +24,28 @@ skills/git-flow/
 
 ## Installation
 
+Clone the repository into a folder named `git-flow` (the folder name should match the skill's `name`).
+
 ### Claude Code
 
 For all your projects:
 
 ```bash
-git clone https://github.com/otsobide/git-flow-skill.git
-mkdir -p ~/.claude/skills
-cp -r git-flow-skill/skills/git-flow ~/.claude/skills/
+git clone https://github.com/otsobide/git-flow-skill.git ~/.claude/skills/git-flow
 ```
 
-For a single project, copy `skills/git-flow` to `.claude/skills/git-flow` inside that repository and commit it, so everyone working on the project gets the same workflow.
+Update later with `git -C ~/.claude/skills/git-flow pull`.
+
+For a single project, clone (or copy) it into `.claude/skills/git-flow` inside that repository, so everyone working on the project gets the same workflow.
 
 ### Other agents
 
-Copy `skills/git-flow` into the skills directory of any agent that supports the Agent Skills (`SKILL.md`) format.
+Clone it into the skills directory of any agent that supports the Agent Skills (`SKILL.md`) format, as `<skills-dir>/git-flow`.
 
 ## Requirements
 
 - `git`
-- [GitHub CLI](https://cli.github.com) (`gh`), authenticated with `gh auth login`, to open pull requests, watch checks and publish releases on GitHub. For other platforms see [`references/platforms.md`](skills/git-flow/references/platforms.md).
+- [GitHub CLI](https://cli.github.com) (`gh`), authenticated with `gh auth login`, to open pull requests, watch checks and publish releases on GitHub. For other platforms see [`references/platforms.md`](references/platforms.md).
 
 ## Usage
 
@@ -59,9 +63,9 @@ The skill activates on its own when you ask the agent for branch, pull request o
 The bundled script can also be used on its own:
 
 ```bash
-skills/git-flow/scripts/wait-for-ci.sh --pr 42            # all checks on PR #42
-skills/git-flow/scripts/wait-for-ci.sh --commit v2.3.0    # pipelines triggered by a merge or tag
-skills/git-flow/scripts/wait-for-ci.sh --help
+scripts/wait-for-ci.sh --pr 42            # all checks on PR #42
+scripts/wait-for-ci.sh --commit v2.3.0    # pipelines triggered by a merge or tag
+scripts/wait-for-ci.sh --help
 ```
 
 Exit codes: `0` all passed, `1` something failed, `2` no checks found, `3` timed out, `4` usage error.
