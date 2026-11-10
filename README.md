@@ -1,4 +1,4 @@
-# git-flow
+# Git Flow
 
 An [Agent Skill](https://agentskills.io) that makes coding agents such as Claude Code follow **Git Flow** whenever they work with branches, pull requests or releases.
 
@@ -12,10 +12,13 @@ An [Agent Skill](https://agentskills.io) that makes coding agents such as Claude
 
 ## Installation
 
+The skill lives in [`skills/git-flow`](skills/git-flow). Copy that folder into your skills directory:
+
 ```bash
-git clone https://github.com/otsobide/git-flow-skill.git ~/.claude/skills/git-flow
+git clone https://github.com/otsobide/git-flow-skill.git
+cp -r git-flow-skill/skills/git-flow ~/.claude/skills/
 ```
 
-To install it for a single project, clone it into `.claude/skills/git-flow` inside that project instead.
+To install it for a single project, copy it into `.claude/skills/` inside that project instead.
 
 Requires `git` and the [GitHub CLI](https://cli.github.com) (`gh`), logged in with `gh auth login`.
